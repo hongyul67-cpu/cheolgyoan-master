@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>실전 모의고사 — 철교안 마스터</title>
+<link rel="stylesheet" href="core.css">
+<script src="https://hongyul67-cpu.github.io/links/collector.js" data-tool="철교안 - 실전 모의고사"></script>
+<script src="https://hongyul67-cpu.github.io/links/fx.js"></script>
+</head>
+<body>
+
+<header class="top"><div class="inner">
+  <h1>🏁 실전 모의고사 <span class="sub">전 과목 통합</span></h1>
+  <p>1교시 50 + 2교시 50 + 3교시 25 = <b>125문항</b>. 실제와 같은 기준으로 <b>과락까지</b> 판정합니다.</p>
+  <a class="homelink" href="index.html">← 철교안 마스터 홈</a>
+</div></header>
+
+<div class="wrap">
+<nav class="tabs">
+  <button class="on" data-tab="p-exam">📝 모의고사</button>
+  <button data-tab="p-guide">📋 시험 정보</button>
+</nav>
+
+<section class="page on" id="p-exam">
+  <div id="exSetup">
+    <div class="card">
+      <h3>📝 응시 설정</h3>
+      <p>문제은행은 각 과목 페이지에서 자동으로 불러옵니다. 선택과목을 고른 뒤 시작하세요.</p>
+      <h4>선택과목</h4>
+      <div class="secpick" id="subPick">
+        <button class="on" data-s="철도신호">철도신호</button>
+        <button data-s="전기이론">전기이론</button>
+        <button data-s="열차운전">열차운전</button>
+      </div>
+      <h4>응시 방식</h4>
+      <div class="btnrow">
+        <button class="btn go" id="goFull">전 과목 125문항 (155분)</button>
+        <button class="btn ghost" id="goHalf">축약 60문항 (60분)</button>
+      </div>
+      <p class="muted" id="loadMsg">문제은행 불러오는 중…</p>
+      <div class="notice">
+        <b>합격 기준</b><br>
+        · 과목당 <b>40점 이상</b> (하나라도 40점 미만이면 <b>과락 = 불합격</b>)<br>
+        · 전 과목 <b>평균 60점 이상</b><br>
+        여기서 "과목"은 <b>교통법규 · 교통안전관리론 · 철도공학 · 선택과목</b> 4개입니다.
+      </div>
+      <p class="muted">내 최고점: <b id="bestScore">-</b></p>
+    </div>
+  </div>
+  <div id="exPlay" style="display:none"></div>
+  <div id="exResult" style="display:none"></div>
+</section>
+
+<section class="page" id="p-guide">
+  <div class="card">
+    <h3>📋 철도교통안전관리자 시험 개요</h3>
+    <div class="scrollx"><table class="t">
+      <tr><th>항목</th><th>내용</th></tr>
+      <tr><td>근거</td><td>「교통안전법」 제53조, 같은 법 시행령 제41조의2</td></tr>
+      <tr><td>시행</td><td>한국교통안전공단(TS) · <b>CBT</b> 방식</td></tr>
+      <tr><td>응시자격</td><td>결격사유(피성년·피한정후견인, 금고 이상 실형 후 2년 미경과 등)만 없으면 <b>누구나</b></td></tr>
+      <tr><td>1교시</td><td>교통법규 50문항 / 50분<br>교통안전법 · 철도안전법 · 철도산업발전기본법</td></tr>
+      <tr><td>2교시</td><td>교통안전관리론 25 + 철도공학 25 / 75분</td></tr>
+      <tr><td>3교시</td><td>선택 1과목 25문항 / 30분<br>열차운전 · 전기이론 · 철도신호 중 택1</td></tr>
+      <tr><td>합격기준</td><td><b>과목당 40점 이상 + 평균 60점 이상</b></td></tr>
+      <tr><td>면제</td><td>관련 자격·경력·석사 이상 학위로 <b>2~4과목 면제 가능</b>.<br><b>1교시 교통법규는 면제 불가</b></td></tr>
+    </table></div>
+    <h4>공부 순서 추천</h4>
+    <ol>
+      <li><b>1교시 교통법규</b>를 먼저 — 면제가 안 되고 배점이 가장 큽니다. 여기서 80점을 만들면 다른 과목이 편해집니다.</li>
+      <li><b>선택과목</b>을 일찍 정하세요. 열차운전을 고르면 철도공학과 겹쳐 공부량이 줄어듭니다.</li>
+      <li><b>철도공학</b>은 숫자·공식만 확실히 — 캔트/슬랙, 승강장 높이, 기울기, 번수는 반복 출제됩니다.</li>
+      <li><b>교통안전관리론</b>은 이론 이름 짝짓기(하인리히·버드·매슬로·허즈버그)와 재해율 공식이 대부분입니다.</li>
+      <li>마지막 2주는 이 <b>실전 모의고사</b>를 반복해 <b>과락 과목</b>을 찾아 메우세요.</li>
+    </ol>
+  </div>
+  <div class="card">
+    <h3>🔗 과목별 학습 도구</h3>
+    <div class="btnrow">
+      <a class="btn ghost" href="law.html">⚖️ 교통법규</a>
+      <a class="btn ghost" href="mgmt.html">🧠 교통안전관리론</a>
+      <a class="btn ghost" href="raileng.html">🛤️ 철도공학</a>
+      <a class="btn ghost" href="elective.html">🔀 선택과목</a>
+    </div>
+  </div>
+</section>
+</div>
+
+<footer class="ft">철교안 마스터 · 실전 모의고사</footer>
+
+<script src="core.js"></script>
+<script>
+/* 이 페이지는 각 과목 페이지의 문제은행을 그대로 재사용합니다.
+   (문제를 중복 보관하지 않기 위해 fetch 후 window.DATA 객체만 추출) */
+var BANK = { '교통법규':[], '교통안전관리론':[], '철도공학':[], '철도신호':[], '전기이론':[], '열차운전':[] };
+var LAWTAGS = ['교통안전법','철도안전법','철도산업발전기본법'];
+var lawByTag = {};
+var loaded = false, sub = '철도신호';
+
+window.DATA = { tool:'철교안 - 실전 모의고사', key:'mock', title:'실전 모의고사', learn:[], ox:[], quiz:[] };
+
+function extractDATA(html){
+  var i = html.indexOf('window.DATA = ');
+  if (i < 0) return null;
+  var body = html.slice(i + 'window.DATA = '.length);
+  var end = body.indexOf('\n};');
+  if (end < 0) return null;
+  return (new Function('return ' + body.slice(0, end + 2)))();
+}
+
+function pull(file){
+  return fetch(file, {cache:'no-store'}).then(function(r){ return r.text(); }).then(extractDATA);
+}
+
+Promise.all([pull('law.html'), pull('mgmt.html'), pull('raileng.html'), pull('elective.html')])
+.then(function(ds){
+  if (ds.some(function(d){ return !d; })) throw new Error('parse');
+  ds[0].quiz.forEach(function(q){
+    (lawByTag[q.tag] = lawByTag[q.tag] || []).push(q);
+    BANK['교통법규'].push(Object.assign({}, q, {tag:'교통법규', _law:q.tag}));
+  });
+  ds[1].quiz.forEach(function(q){ BANK['교통안전관리론'].push(Object.assign({}, q, {tag:'교통안전관리론'})); });
+  ds[2].quiz.forEach(function(q){ BANK['철도공학'].push(Object.assign({}, q, {tag:'철도공학'})); });
+  ds[3].quiz.forEach(function(q){ if (BANK[q.tag]) BANK[q.tag].push(Object.assign({}, q, {tag:'선택과목', _sub:q.tag})); });
+  loaded = true;
+  document.getElementById('loadMsg').innerHTML =
+    '✅ 문제은행 준비 완료 — 교통법규 <b>' + BANK['교통법규'].length + '</b> · 교통안전관리론 <b>' + BANK['교통안전관리론'].length +
+    '</b> · 철도공학 <b>' + BANK['철도공학'].length + '</b> · 철도신호 <b>' + BANK['철도신호'].length +
+    '</b> · 전기이론 <b>' + BANK['전기이론'].length + '</b> · 열차운전 <b>' + BANK['열차운전'].length + '</b>문항';
+})
+.catch(function(){
+  document.getElementById('loadMsg').innerHTML =
+    '<span style="color:var(--bad)">⚠️ 문제은행을 불러오지 못했습니다.</span> 이 페이지는 다른 과목 페이지를 읽어와야 해서 <b>웹 주소(http/https)로 열어야</b> 합니다. ' +
+    '파일을 더블클릭해서 연 경우(file://)에는 동작하지 않으니, 배포된 주소나 로컬 서버로 열어 주세요. ' +
+    '그동안에는 각 과목 페이지의 CBT를 이용하시면 됩니다.';
+  document.getElementById('goFull').disabled = true;
+  document.getElementById('goHalf').disabled = true;
+});
+
+function shuffle(a){ a=a.slice(); for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;} return a; }
+function take(arr,n){ return shuffle(arr).slice(0, Math.min(n, arr.length)); }
+
+function buildPool(full){
+  var pool = [];
+  if (full) {
+    // 1교시 50 (교통안전법12 / 철도안전법23 / 철도산업발전기본법15)
+    pool = pool.concat(take((lawByTag['교통안전법']||[]).map(mapLaw), 12));
+    pool = pool.concat(take((lawByTag['철도안전법']||[]).map(mapLaw), 23));
+    pool = pool.concat(take((lawByTag['철도산업발전기본법']||[]).map(mapLaw), 15));
+    pool = pool.concat(take(BANK['교통안전관리론'], 25));
+    pool = pool.concat(take(BANK['철도공학'], 25));
+    pool = pool.concat(take(BANK[sub], 25));
+  } else {
+    pool = pool.concat(take((lawByTag['교통안전법']||[]).map(mapLaw), 6));
+    pool = pool.concat(take((lawByTag['철도안전법']||[]).map(mapLaw), 11));
+    pool = pool.concat(take((lawByTag['철도산업발전기본법']||[]).map(mapLaw), 7));
+    pool = pool.concat(take(BANK['교통안전관리론'], 12));
+    pool = pool.concat(take(BANK['철도공학'], 12));
+    pool = pool.concat(take(BANK[sub], 12));
+  }
+  return pool;
+}
+function mapLaw(q){ return Object.assign({}, q, {tag:'교통법규', _law:q.tag}); }
+
+document.querySelectorAll('#subPick button').forEach(function(b){
+  b.onclick = function(){
+    document.querySelectorAll('#subPick button').forEach(function(x){ x.classList.remove('on'); });
+    b.classList.add('on'); sub = b.dataset.s;
+  };
+});
+document.getElementById('goFull').onclick = function(){ if(!loaded) return; var p=buildPool(true); CG.examStart(p.length, 155, p); };
+document.getElementById('goHalf').onclick = function(){ if(!loaded) return; var p=buildPool(false); CG.examStart(p.length, 60, p); };
+
+/* 과락 판정 */
+CG.onGraded = function(info){
+  var order = ['교통법규','교통안전관리론','철도공학','선택과목'];
+  var rows = [], sum = 0, cnt = 0, fail = [];
+  order.forEach(function(t){
+    var v = info.byTag[t];
+    if (!v) return;
+    var s = Math.round(v.ok / v.n * 100);
+    sum += s; cnt++;
+    if (s < 40) fail.push(t);
+    rows.push('<tr><td>' + t + (t==='선택과목' ? ' (' + sub + ')' : '') + '</td><td>' + v.ok + ' / ' + v.n +
+      '</td><td class="' + (s < 40 ? 'hl2' : '') + '">' + s + '점</td><td>' + (s < 40 ? '❌ 과락' : '✅ 통과') + '</td></tr>');
+  });
+  var avg = cnt ? Math.round(sum / cnt) : 0;
+  var pass = fail.length === 0 && avg >= 60;
+  return '<div class="card">' +
+    '<h3>' + (pass ? '🎉 합격' : '❌ 불합격') + ' — 평균 ' + avg + '점</h3>' +
+    '<div class="scrollx"><table class="t"><tr><th>과목</th><th>정답</th><th>점수</th><th>판정</th></tr>' + rows.join('') + '</table></div>' +
+    (fail.length ? '<p class="hl2">과락 과목: ' + fail.join(', ') + ' — 평균이 60점을 넘어도 <b>불합격</b>입니다.</p>' : '') +
+    (!fail.length && avg < 60 ? '<p class="hl2">과락은 없지만 평균이 60점에 미치지 못했습니다.</p>' : '') +
+    (pass ? '<p class="hl">과락 없음 + 평균 60점 이상 → 실제 기준으로 합격입니다.</p>' : '') +
+    '</div>';
+};
+
+CG.boot();
+</script>
+</body>
+</html>
