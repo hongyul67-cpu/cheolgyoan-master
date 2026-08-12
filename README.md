@@ -13,6 +13,7 @@
 | `raileng.html` | **철도공학** (+ 궤도틀림·유지보수, 캔트·슬랙 계산 연습기) | 배우기 13강 · OX 36 · 문제 60 · 25문항 CBT |
 | `elective.html` | **선택과목 3종** (철도신호·전기이론·열차운전) | 배우기 12강 · OX 38 · 문제 76 · 과목별 25문항 CBT |
 | `mock.html` | **실전 모의고사** — 전 과목 125문항, 과락 판정 | 155분 |
+| `teach.html` | **수업용 자료(교사용)** — 16차시 운영안 · 발문/오개념 · 인쇄 학습지 3종 · 링크 생성기 | — |
 | `core.css` / `core.js` | 공용 스타일·엔진 (탭·배우기·OX·랠리·CBT·채점) | — |
 
 문항 총계 **267문항**, OX 총계 **144문장**, 배우기 **69강**.
@@ -38,6 +39,17 @@
 ```bash
 python -m http.server 8871 --directory "C:\Users\user\Desktop\claude code\cheolgyoan-master"
 ```
+
+## 수업모드 (class-mode)
+
+과목 페이지 5개에 `links/class-mode.js`가 붙어 있습니다. 교실 화면용으로 확대하고
+점수·콤보를 숨기며 교사 툴바를 띄웁니다.
+
+- 켜기: 우하단 🎓 버튼 / 주소에 `?class=1` / `F9`
+- 넘기기: `← →` `Space` `PageUp/PageDown`(프레젠터 리모컨) / 탭 이동 `1~9` / 끄기 `Esc`
+- 인식 규약은 각 페이지 `<head>`의 `window.CLASSMODE = {...}`로 지정
+  (`options:'.opt, .oxbtns button'`, `explain:'.why'`, `correct:'.ok'`, `wrong:'.ng'`).
+  탭 현재 위치는 `core.js`가 넣는 `aria-pressed`로 판별합니다.
 
 ## 결과 제출 (result-collector)
 

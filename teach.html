@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>수업용 자료 — 철교안 마스터</title>
+<link rel="stylesheet" href="core.css">
+<style>
+  .plan{width:100%;border-collapse:collapse;font-size:.86rem}
+  .plan th,.plan td{border:1px solid var(--line);padding:7px 9px;vertical-align:top}
+  .plan th{background:var(--panel2);color:var(--acc2);white-space:nowrap}
+  .plan td.c{white-space:nowrap;text-align:center;color:var(--gold);font-weight:700}
+  .plan a{color:var(--acc2)}
+  .flow{font-size:.84rem;color:var(--dim);margin-top:4px}
+  .flow b{color:var(--tx)}
+  .ws{background:#fff;color:#111;border-radius:10px;padding:22px 24px;margin:14px 0;border:1px solid #ccc}
+  .ws h3{color:#111;border-bottom:2px solid #111;padding-bottom:6px;margin:0 0 12px;font-size:1.1rem}
+  .ws .meta{display:flex;gap:18px;font-size:.85rem;color:#444;margin-bottom:14px;flex-wrap:wrap}
+  .ws table{width:100%;border-collapse:collapse;font-size:.88rem;margin:10px 0}
+  .ws th,.ws td{border:1px solid #888;padding:6px 8px;color:#111}
+  .ws th{background:#eee}
+  .ws .blank{display:inline-block;min-width:90px;border-bottom:1.5px solid #111;height:1.1em}
+  .ws ol,.ws ul{padding-left:20px;margin:8px 0}
+  .ws li{margin:5px 0}
+  .ws .hint{font-size:.8rem;color:#555}
+  .qa{border-left:3px solid var(--acc);background:#0f1720;padding:9px 13px;margin:8px 0;border-radius:0 8px 8px 0;font-size:.9rem}
+  .qa b{color:var(--acc)}
+  .miss{border-left:3px solid var(--bad);background:#1a1215;padding:9px 13px;margin:8px 0;border-radius:0 8px 8px 0;font-size:.9rem}
+  .miss b{color:var(--bad)}
+  .linkout{width:100%;padding:10px;border-radius:8px;border:1px solid var(--line);background:var(--panel2);color:var(--tx);font-family:inherit;font-size:.85rem}
+  @media print{
+    body{background:#fff;color:#000}
+    header.top,nav.tabs,footer.ft,.noprint{display:none !important}
+    .wrap{max-width:none;padding:0}
+    section.page{display:none}
+    section.page.on{display:block}
+    .ws{border:0;padding:0;margin:0 0 24px;page-break-after:always}
+    .ws:last-child{page-break-after:auto}
+  }
+</style>
+<script src="https://hongyul67-cpu.github.io/links/collector.js" data-tool="철교안 - 수업자료"></script>
+</head>
+<body>
+
+<header class="top"><div class="inner">
+  <h1>🧑‍🏫 수업용 자료 <span class="sub">교사용</span></h1>
+  <p>철교안 마스터를 수업에서 굴리기 위한 차시 계획 · 인쇄 학습지 · 진행 가이드 · 링크 만들기</p>
+  <a class="homelink" href="index.html">← 철교안 마스터 홈</a>
+</div></header>
+
+<div class="wrap">
+<nav class="tabs">
+  <button class="on" data-tab="p-plan">📅 차시 계획</button>
+  <button data-tab="p-guide">🗣️ 수업 진행</button>
+  <button data-tab="p-print">🖨️ 인쇄 학습지</button>
+  <button data-tab="p-link">🔗 링크 만들기</button>
+</nav>
+
+<!-- ═══════════ 차시 계획 ═══════════ -->
+<section class="page on" id="p-plan">
+  <div class="card">
+    <h3>📅 16차시 운영안 (주 2시간 · 한 학기)</h3>
+    <p class="muted">시수가 부족하면 <b>1·2·3·4·8·9·13·14차시</b>만 골라 8차시로 압축해도 굴러갑니다. 도구 링크를 누르면 해당 탭이 바로 열립니다.</p>
+    <div class="scrollx"><table class="plan">
+      <tr><th>차시</th><th>주제</th><th>도구</th><th>수업 흐름 · 과제</th></tr>
+      <tr><td class="c">1</td><td><b>오리엔테이션</b><br>자격 이해</td><td><a href="index.html">허브</a><br><a href="law.html#">교통법규 › 배우기 › 시험 안내</a></td>
+        <td>왜 이 자격인가 — 철도 공기업 <b>가산점</b>, 학점은행 <b>16학점</b>, 교통안전담당자 요건.<br>
+        <div class="flow"><b>도입</b> "코레일 입사에 도움 되는 자격이 뭘까?" → <b>전개</b> 시험 구조표(4과목·과락) 함께 읽기 → <b>정리</b> 선택과목 3종 소개하고 <b>고르게 하기</b></div></td></tr>
+
+      <tr><td class="c">2</td><td>교통안전법 ①<br>목적·정의·계획</td><td><a href="law.html">교통법규 › 배우기</a></td>
+        <td>점검(수단·행정기관) vs 진단(시설·진단기관) 구분이 핵심.<br>
+        <div class="flow"><b>전개</b> 배우기 3~4강 → <b>랠리(교통안전법)</b> 10문항 함께 → <b>정리</b> OX 스피드 5분<br><b>과제</b> 랠리 20문항 1회</div></td></tr>
+
+      <tr><td class="c">3</td><td>교통안전법 ②<br>관리규정·자격·담당자</td><td><a href="law.html">교통법규 › 배우기</a></td>
+        <td><b>주는 건 장관, 뺏는 건 시·도지사</b>를 각인시키는 차시.<br>
+        <div class="flow"><b>도입</b> 지난 시간 OX 3문제 → <b>전개</b> 배우기 5~9강 → <b>정리</b> "권한 주체" 표 빈칸 채우기(학습지 3)</div></td></tr>
+
+      <tr><td class="c">4</td><td>철도안전법 ①<br>정의·사고·계획</td><td><a href="law.html">교통법규 › 배우기</a></td>
+        <td>사고 / 준사고 / 운행장애 <b>3단 구분</b>이 이 차시의 전부.<br>
+        <div class="flow"><b>전개</b> 배우기 11~13강 → 사례 카드 분류 활동(아래 진행 가이드 참고) → <b>정리</b> 지연 <b>20/30/60분</b> 암기</div></td></tr>
+
+      <tr><td class="c">5</td><td>철도안전법 ②<br>운전면허·종사자</td><td><a href="law.html">교통법규 › 배우기</a></td>
+        <td>면허 6종, 결격 19세, 유효 10년, 신체 2년 / 적성 10년.<br>
+        <div class="flow"><b>전개</b> 배우기 14~17강 → <b>랠리(철도안전법)</b> → <b>정리</b> 숫자 5개 구두 확인<br><b>과제</b> OX 스피드 1회</div></td></tr>
+
+      <tr><td class="c">6</td><td>철도안전법 ③<br>운행안전·보호·벌칙</td><td><a href="law.html">교통법규 › 배우기</a></td>
+        <td>음주 <b>0.02 / 0.03</b>, 보호지구 <b>30 / 10 / 20m</b>, 즉시보고 <b>3명·5천만원</b>.<br>
+        <div class="flow"><b>전개</b> 배우기 18~22강 → <b>정리</b> 벌칙 사다리 카드 정렬 활동</div></td></tr>
+
+      <tr><td class="c">7</td><td>철도산업발전기본법</td><td><a href="law.html">교통법규 › 배우기</a></td>
+        <td>시설(국가·국가철도공단) ↔ 운영(시장경제·한국철도공사) <b>분리</b> 구조.<br>
+        <div class="flow"><b>전개</b> 배우기 23~27강 → 자산·부채 짝맞추기 → <b>정리</b> 공익서비스비용 3범위</div></td></tr>
+
+      <tr><td class="c">8</td><td><b>1교시 실전</b><br>50문항 CBT</td><td><a href="law.html">교통법규 › CBT 시험</a></td>
+        <td>실제와 같은 50문항·50분. <b>제출</b>까지 시키고 결과를 시트로 받습니다.<br>
+        <div class="flow"><b>정리</b> 오답 상위 5문항만 전체 해설 → 나머지는 개인 오답노트</div></td></tr>
+
+      <tr><td class="c">9</td><td>교통안전관리론 ①<br>사고이론</td><td><a href="mgmt.html">교통안전관리론</a></td>
+        <td>하인리히 <b>1:29:300</b> / 버드 <b>1:10:30:600</b>, 도미노 3단계 vs 관리 부족.<br>
+        <div class="flow"><b>도입</b> "큰 사고 전에 신호가 있었을까?" → <b>전개</b> 배우기 3~4강 → <b>정리</b> 이론-인물 매칭(학습지 2)</div></td></tr>
+
+      <tr><td class="c">10</td><td>교통안전관리론 ②<br>인간요인·통계·실무</td><td><a href="mgmt.html">교통안전관리론</a></td>
+        <td>도수율·강도율·연천인율 <b>계산</b>이 확실한 득점원.<br>
+        <div class="flow"><b>전개</b> 배우기 5~9강 + 계산 3문제 판서 → <b>정리</b> 25문항 CBT<br><b>과제</b> 랠리 20문항</div></td></tr>
+
+      <tr><td class="c">11</td><td>철도공학 ①<br>궤도·선형</td><td><a href="raileng.html">철도공학 › 배우기</a><br><a href="raileng.html">› 계산 연습</a></td>
+        <td><b>C = 11.8V²/R</b>, <b>S = 2400/R</b>, 슬랙 30mm·R 300m 이하.<br>
+        <div class="flow"><b>전개</b> 배우기 1~5강 → <b>계산 연습기</b>를 화면에 띄우고 값 바꿔가며 시연 → 학생이 직접 3문제<br><b>과제</b> 랜덤 계산 문제 5회</div></td></tr>
+
+      <tr><td class="c">12</td><td>철도공학 ②<br>분기기·차량·유지보수</td><td><a href="raileng.html">철도공학</a></td>
+        <td>번수 <b>N = cot θ</b>, 대향이 위험, <b>궤도틀림 5종</b>.<br>
+        <div class="flow"><b>전개</b> 배우기 6~13강 → <b>정리</b> 25문항 CBT</div></td></tr>
+
+      <tr><td class="c">13</td><td>선택과목</td><td><a href="elective.html">선택과목</a></td>
+        <td>학생별로 고른 과목만 진행(모둠 분리). 전기과면 <b>전기이론</b> 권장.<br>
+        <div class="flow"><b>전개</b> 자기 과목 배우기 → 과목별 랠리 → <b>정리</b> 과목별 25문항 CBT</div></td></tr>
+
+      <tr><td class="c">14</td><td><b>총정리</b><br>숫자·주체</td><td><a href="law.html">교통법규 › 배우기 › 숫자 총정리</a></td>
+        <td>이 시험은 숫자·주체를 바꿔 오답을 만듭니다. 여기가 마지막 승부처.<br>
+        <div class="flow"><b>전개</b> 총정리 3장을 <b>수업모드</b>로 띄우고 빈칸 퀴즈 → <b>정리</b> 학습지 1·3 배부</div></td></tr>
+
+      <tr><td class="c">15</td><td><b>실전 모의고사</b></td><td><a href="mock.html">실전 모의고사</a></td>
+        <td>125문항이 부담되면 <b>축약 60문항(60분)</b>으로. 과락 판정을 반드시 확인시킵니다.<br>
+        <div class="flow"><b>정리</b> 각자 <b>과락 과목</b>을 적어 제출 → 다음 차시 개인 목표로</div></td></tr>
+
+      <tr><td class="c">16</td><td>약점 보충<br>· 원서 접수 안내</td><td>학생별 과락 과목</td>
+        <td>모의고사에서 나온 과락 과목의 <b>배우기</b>로 되돌아가 개별 보충.<br>
+        <div class="flow"><b>정리</b> TS 국가자격시험 누리집 접수 방법 안내, 응시 일정 확인</div></td></tr>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h3>⏱️ 매 차시 기본 틀 (50분 기준)</h3>
+    <div class="scrollx"><table class="plan">
+      <tr><th>구간</th><th>시간</th><th>활동</th></tr>
+      <tr><td class="c">도입</td><td class="c">5분</td><td>지난 차시 <b>OX 3문제</b>를 수업모드로 띄워 손들기 — 출석 대신 사용</td></tr>
+      <tr><td class="c">전개 1</td><td class="c">20분</td><td><b>배우기</b> 카드를 앞에서 함께 읽기. 카드마다 "시험에 나오는 포인트"에서 멈추고 발문</td></tr>
+      <tr><td class="c">전개 2</td><td class="c">15분</td><td><b>랠리</b> 또는 <b>OX</b>를 학생 기기로 개별 진행 (교사는 순회)</td></tr>
+      <tr><td class="c">정리</td><td class="c">10분</td><td>오답 많은 2~3문항만 전체 해설 → 다음 차시 예고 · 과제 링크 안내</td></tr>
+    </table></div>
+    <div class="notice"><b>기기가 부족할 때</b> 전개 2를 생략하고 <b>수업모드</b>로 교사 화면에서 문제를 하나씩 띄워 손들기로 진행하세요. 점수·콤보 표시가 자동으로 숨겨져 부담 없이 참여합니다.</div>
+  </div>
+</section>
+
+<!-- ═══════════ 수업 진행 ═══════════ -->
+<section class="page" id="p-guide">
+  <div class="card">
+    <h3>🎓 수업모드 쓰는 법</h3>
+    <p>모든 과목 페이지에 <b>수업모드</b>가 붙어 있습니다. 교실 화면(TV·빔프로젝터)에 맞게 글씨를 키우고, 점수·콤보를 숨기고, 하단에 교사 툴바를 띄웁니다.</p>
+    <ul>
+      <li><b>켜기</b>: 화면 우하단 <b>🎓 버튼</b> · 주소 뒤에 <b>?class=1</b> · 키보드 <b>F9</b></li>
+      <li><b>넘기기</b>: <b>← →</b> · <b>Space</b> · <b>PageUp/PageDown</b>(프레젠터 리모컨 그대로 됨)</li>
+      <li><b>탭 이동</b>: <b>1~9</b> 숫자키 / <b>크기</b>: <b>+ −</b> / <b>타이머</b>: <b>T</b> / <b>끄기</b>: <b>Esc</b></li>
+      <li><b>2단계 진행</b>: 문제만 먼저 보여주고 → 키를 누르면 정답 강조 + 해설 공개. <b>먼저 묻고 나중에 공개</b>하는 흐름이 만들어집니다</li>
+    </ul>
+    <div class="notice"><b>추천</b> 아래 <b>링크 만들기</b> 탭에서 <b>수업모드 링크</b>를 만들어 교사용 즐겨찾기에 두세요. 학생용 링크와 분리하면 편합니다.</div>
+  </div>
+
+  <div class="card">
+    <h3>🗣️ 발문 모음 — 그냥 읽지 말고 물어보세요</h3>
+    <div class="qa"><b>Q.</b> 열차가 30분 늦게 도착했어. 이건 철도사고일까?<br>
+      <span class="muted">→ 일반여객열차 30분 이상이면 <b>운행장애</b>. 사고·준사고·운행장애 3단 구분으로 자연스럽게 연결됩니다.</span></div>
+    <div class="qa"><b>Q.</b> 기관사가 정지신호를 그냥 지나쳤는데 다행히 아무 일도 없었어. 뭐라고 부를까?<br>
+      <span class="muted">→ <b>준사고</b>. "사고가 날 뻔한 것"을 왜 굳이 법으로 정해 보고하게 할까? → 하인리히 1:29:300으로 연결</span></div>
+    <div class="qa"><b>Q.</b> 자동차는 브레이크 밟으면 금방 서는데 열차는 왜 안 설까?<br>
+      <span class="muted">→ 점착계수 0.1~0.3. 그래서 <b>보고 나서 멈추는 게 불가능</b> → 폐색과 신호가 왜 필요한지로 연결</span></div>
+    <div class="qa"><b>Q.</b> 신호기가 고장 났어. 무슨 색이 켜져야 안전할까?<br>
+      <span class="muted">→ <b>적색(정지)</b>. 페일세이프. 자동공기제동·궤도회로도 같은 원리라는 걸 이어서 설명</span></div>
+    <div class="qa"><b>Q.</b> 곡선에서 바깥 레일을 높이는 이유는? 그럼 얼마나 높여야 할까?<br>
+      <span class="muted">→ 원심력 상쇄 → <b>C = 11.8V²/R</b> → 계산 연습기로 값을 바꿔가며 시연</span></div>
+    <div class="qa"><b>Q.</b> 교통안전관리자 자격증은 누가 주고, 누가 뺏을까?<br>
+      <span class="muted">→ <b>주는 건 국토교통부장관, 뺏는 건 시·도지사</b>. 매년 나오는 함정</span></div>
+  </div>
+
+  <div class="card">
+    <h3>⚠️ 학생들이 특히 자주 틀리는 곳</h3>
+    <div class="miss"><b>1. 점검 ↔ 진단</b> — 교통<b>수단</b>안전<b>점검</b>은 <b>교통행정기관</b>이, 교통<b>시설</b>안전<b>진단</b>은 <b>교통안전진단기관</b>이. 주체와 대상을 통째로 바꿔 냅니다.</div>
+    <div class="miss"><b>2. 자격 부여자 ↔ 취소자</b> — 국토교통부장관이 주고 <b>시·도지사</b>가 취소. 진단기관 등록도 <b>시·도지사</b>.</div>
+    <div class="miss"><b>3. 정차역 무단통과</b> — 사고나 준사고가 아니라 <b>운행장애</b>입니다.</div>
+    <div class="miss"><b>4. 신체 2년 / 적성 10년</b> — 자꾸 뒤집어 씁니다. "몸은 자주(2년), 성격은 가끔(10년)"으로 외우게 하세요.</div>
+    <div class="miss"><b>5. 분기기 번수</b> — 번수가 <b>클수록</b> 각이 <b>작아</b> 완만하고 <b>빠릅니다</b>. 직관과 반대라 반드시 짚어야 합니다.</div>
+    <div class="miss"><b>6. 표정속도 ↔ 평균속도</b> — 표정속도가 <b>정차시간을 포함</b>합니다.</div>
+    <div class="miss"><b>7. 손실우연의 원칙</b> — "손실은 사고에 비례한다"로 잘못 외웁니다. <b>손실 크기는 우연</b>이라 사고 자체를 없애야 한다는 뜻입니다.</div>
+    <div class="miss"><b>8. FTA ↔ ETA</b> — FTA는 <b>연역·하향</b>(결과에서 원인으로), ETA·FMEA는 <b>귀납·상향</b>.</div>
+    <div class="miss"><b>9. 성적 수치심 행위</b> — 과태료가 아니라 <b>500만원 이하 벌금</b>(형벌)입니다. 반대로 <b>흡연</b>은 100만원 이하 <b>과태료</b>.</div>
+    <div class="miss"><b>10. 인덕턴스 위상</b> — L은 전류가 <b>뒤지고</b>(지상), C는 <b>앞섭니다</b>(진상). "L은 느릿, C는 성급"으로.</div>
+  </div>
+
+  <div class="card">
+    <h3>📊 평가 루브릭 (수행평가용 예시)</h3>
+    <div class="scrollx"><table class="plan">
+      <tr><th>영역</th><th>배점</th><th>상 (A)</th><th>중 (B)</th><th>하 (C)</th></tr>
+      <tr><td>참여도</td><td class="c">20</td><td>매 차시 OX·랠리에 성실히 참여</td><td>대부분 참여</td><td>참여 저조</td></tr>
+      <tr><td>과제 수행</td><td class="c">20</td><td>과제 링크 제출 <b>8회 이상</b></td><td>5~7회</td><td>4회 이하</td></tr>
+      <tr><td>1교시 CBT</td><td class="c">30</td><td><b>70점 이상</b></td><td>50~69점</td><td>50점 미만</td></tr>
+      <tr><td>실전 모의고사</td><td class="c">30</td><td>평균 <b>60점 이상 + 과락 없음</b></td><td>평균 45점 이상</td><td>평균 45점 미만</td></tr>
+    </table></div>
+    <p class="muted">제출 결과는 <b>제출시각·반·번호·이름·점수·정답수·정답률·오답번호·소요시간</b>이 구글 시트에 자동으로 쌓이므로, 위 표는 시트에서 바로 채점할 수 있습니다.</p>
+  </div>
+</section>
+
+<!-- ═══════════ 인쇄 학습지 ═══════════ -->
+<section class="page" id="p-print">
+  <div class="card noprint">
+    <h3>🖨️ 인쇄용 학습지 3종</h3>
+    <p>아래 학습지는 <b>흰 배경</b>으로 만들어져 그대로 인쇄됩니다. 브라우저에서 <b>Ctrl+P</b>를 누르면 이 탭의 학습지만 나오고 메뉴·머리글은 빠집니다. 학습지마다 <b>새 페이지</b>로 나뉩니다.</p>
+    <div class="btnrow"><button class="btn go" onclick="window.print()">🖨️ 인쇄하기 (Ctrl+P)</button></div>
+    <p class="muted">정답은 각 학습지 아래 "교사용 정답"에 접어 두었습니다. 학생 배부용으로 뽑을 땐 정답 부분을 접어서 잘라 쓰시거나, 인쇄 미리보기에서 마지막 페이지를 빼세요.</p>
+  </div>
+
+  <!-- 학습지 1 -->
+  <div class="ws">
+    <h3>학습지 ① 철교안 숫자 채우기 — 교통법규</h3>
+    <div class="meta"><span>학과 ______________</span><span>학년/반 ______</span><span>번호 ______</span><span>이름 ______________</span></div>
+    <p class="hint">※ 이 시험은 숫자만 바꿔서 오답을 만듭니다. 빈칸을 채우고, 짝과 서로 물어보세요.</p>
+    <table>
+      <tr><th style="width:58%">내용</th><th>숫자</th></tr>
+      <tr><td>국가교통안전기본계획 · 철도안전 종합계획 · 철도산업발전기본계획의 수립 주기</td><td><span class="blank"></span>년</td></tr>
+      <tr><td>교통사고관련자료등의 보관 기간</td><td><span class="blank"></span>년</td></tr>
+      <tr><td>철도차량 운전면허의 유효기간</td><td><span class="blank"></span>년</td></tr>
+      <tr><td>운전면허 결격 — 만 나이</td><td><span class="blank"></span>세 미만</td></tr>
+      <tr><td>철도종사자 정기 <b>신체</b>검사 주기</td><td><span class="blank"></span>년</td></tr>
+      <tr><td>철도종사자 정기 <b>적성</b>검사 주기 (50세 이상은?)</td><td><span class="blank"></span>년 (<span class="blank"></span>년)</td></tr>
+      <tr><td>안전관리체계 정기검사 주기</td><td><span class="blank"></span>년마다 1회</td></tr>
+      <tr><td>안전관리체계 시정조치계획서 제출 기한</td><td><span class="blank"></span>일 이내</td></tr>
+      <tr><td>운전면허 취소·정지 통지를 받은 뒤 면허증 반납 기한</td><td><span class="blank"></span>일 이내</td></tr>
+      <tr><td>철도안전법상 과징금 납부 기한</td><td><span class="blank"></span>일 이내</td></tr>
+      <tr><td>철도보호지구의 범위 (노면전차는?)</td><td><span class="blank"></span>m (<span class="blank"></span>m)</td></tr>
+      <tr><td>궤도 중심에서 지장물 방치가 금지되는 폭</td><td>양측 <span class="blank"></span>m 이내</td></tr>
+      <tr><td>운전업무종사자·관제업무종사자·여객승무원의 음주 기준</td><td><span class="blank"></span>%</td></tr>
+      <tr><td>작업책임자·철도운행안전관리자 등의 음주 기준</td><td><span class="blank"></span>%</td></tr>
+      <tr><td>즉시 보고 대상 — 사상자 수 / 재산피해액</td><td><span class="blank"></span>명 이상 / <span class="blank"></span>만원 이상</td></tr>
+      <tr><td>운행장애로 보는 지연 — 고속·전동 / 일반여객 / 화물·기타</td><td><span class="blank"></span> / <span class="blank"></span> / <span class="blank"></span>분</td></tr>
+      <tr><td>철도산업위원회의 위원 수</td><td>위원장 포함 <span class="blank"></span>인 이내</td></tr>
+      <tr><td>안전관리체계 과징금 상한</td><td><span class="blank"></span>억원 이하</td></tr>
+      <tr><td>교통안전법상 "중상"의 기준</td><td>최초진단 <span class="blank"></span>주 이상</td></tr>
+      <tr><td>교통안전담당자 신규교육 / 보수교육</td><td><span class="blank"></span>개월 이내 / <span class="blank"></span>년마다</td></tr>
+    </table>
+    <p class="hint"><b>교사용 정답</b> 5 / 5 / 10 / 19 / 2 / 10(5) / 1 / 14 / 15 / 20 / 30(10) / 3 / 0.02 / 0.03 / 3·5,000 / 20·30·60 / 25 / 30 / 3 / 6개월·2년</p>
+  </div>
+
+  <!-- 학습지 2 -->
+  <div class="ws">
+    <h3>학습지 ② 이론 · 인물 짝짓기 — 교통안전관리론</h3>
+    <div class="meta"><span>학년/반 ______</span><span>번호 ______</span><span>이름 ______________</span></div>
+    <p class="hint">※ 왼쪽 설명에 맞는 인물·이론을 오른쪽 보기에서 골라 기호를 쓰세요.</p>
+    <table>
+      <tr><th style="width:72%">설명</th><th>답</th></tr>
+      <tr><td>사고는 5단계 연쇄로 일어나며, <b>3단계(불안전한 행동·상태)</b>를 제거하면 끊긴다</td><td><span class="blank"></span></td></tr>
+      <tr><td>중상 1 : 경상 29 : 무상해 300 — 사소한 징후를 관리해야 큰 사고를 막는다</td><td><span class="blank"></span></td></tr>
+      <tr><td>사고의 근본 원인은 <b>관리(제어)의 부족</b>이다. 1 : 10 : 30 : 600</td><td><span class="blank"></span></td></tr>
+      <tr><td>관리자의 잘못은 <b>작전적 에러</b>, 현장의 잘못은 <b>전술적 에러</b></td><td><span class="blank"></span></td></tr>
+      <tr><td>여러 겹의 방호벽에 뚫린 구멍이 <b>일직선으로 정렬</b>될 때 사고가 관통한다</td><td><span class="blank"></span></td></tr>
+      <tr><td>욕구는 생리적 → 안전 → 사회적 → 존경 → 자아실현의 <b>계층</b>을 이룬다</td><td><span class="blank"></span></td></tr>
+      <tr><td>급여·작업조건은 불만만 없앨 뿐, 만족은 성취·인정에서 나온다</td><td><span class="blank"></span></td></tr>
+      <tr><td>인간은 원래 일을 싫어한다고 보아 <b>통제·감독</b> 중심으로 관리한다</td><td><span class="blank"></span></td></tr>
+      <tr><td>행동은 개인적 요인과 환경의 함수다 — <b>B = f(P · E)</b></td><td><span class="blank"></span></td></tr>
+      <tr><td>휴먼에러를 생략·실행·순서·시간·불필요한 행동으로 나눈다</td><td><span class="blank"></span></td></tr>
+      <tr><td>행동을 <b>숙련기반·규칙기반·지식기반</b> 3수준으로 나눈다</td><td><span class="blank"></span></td></tr>
+      <tr><td>기술(Engineering)·교육(Education)·규제(Enforcement)의 3E</td><td><span class="blank"></span></td></tr>
+    </table>
+    <p><b>보기</b> ㉠ 하인리히 도미노 ㉡ 하인리히 1:29:300 ㉢ 버드 ㉣ 아담스 ㉤ 리즌(스위스 치즈) ㉥ 매슬로 ㉦ 허즈버그 ㉧ 맥그리거 X이론 ㉨ 레빈 ㉩ 스웨인 ㉪ 라스무센 ㉫ 하베이</p>
+    <hr>
+    <p class="hint">※ 아래 재해율을 계산하세요. (연근로시간 1,200,000시간, 재해 6건, 근로손실일수 120일, 근로자 500명)</p>
+    <ol>
+      <li>도수율 = <span class="blank"></span> &nbsp;&nbsp;<span class="hint">(재해건수 ÷ 연근로시간 × 1,000,000)</span></li>
+      <li>강도율 = <span class="blank"></span> &nbsp;&nbsp;<span class="hint">(근로손실일수 ÷ 연근로시간 × 1,000)</span></li>
+      <li>연천인율 = <span class="blank"></span> &nbsp;&nbsp;<span class="hint">(재해자수 ÷ 근로자수 × 1,000)</span></li>
+      <li>사망 시 근로손실일수 = <span class="blank"></span>일</li>
+    </ol>
+    <p class="hint"><b>교사용 정답</b> ㉠ ㉡ ㉢ ㉣ ㉤ ㉥ ㉦ ㉧ ㉨ ㉩ ㉪ ㉫ / 도수율 5, 강도율 0.1, 연천인율 12, 7,500일</p>
+  </div>
+
+  <!-- 학습지 3 -->
+  <div class="ws">
+    <h3>학습지 ③ 공식 &amp; 권한 주체 — 철도공학 · 법규</h3>
+    <div class="meta"><span>학년/반 ______</span><span>번호 ______</span><span>이름 ______________</span></div>
+    <p class="hint">※ (1) 공식을 쓰고 계산하세요.</p>
+    <table>
+      <tr><th style="width:40%">항목</th><th>공식</th><th>계산 (V=120km/h, R=600m)</th></tr>
+      <tr><td>균형캔트 C</td><td><span class="blank" style="min-width:150px"></span></td><td><span class="blank" style="min-width:110px"></span> mm</td></tr>
+      <tr><td>슬랙 S (R=250m)</td><td><span class="blank" style="min-width:150px"></span></td><td><span class="blank" style="min-width:110px"></span> mm</td></tr>
+      <tr><td>곡선저항 (R=350m)</td><td><span class="blank" style="min-width:150px"></span></td><td><span class="blank" style="min-width:110px"></span> kg/ton</td></tr>
+      <tr><td>구배저항 (10‰, 800톤)</td><td>1‰당 <span class="blank" style="min-width:70px"></span> kg/ton</td><td><span class="blank" style="min-width:110px"></span> kg</td></tr>
+      <tr><td>분기기 번수 N</td><td>N = <span class="blank" style="min-width:110px"></span></td><td>번수가 클수록 통과속도는? <span class="blank" style="min-width:60px"></span></td></tr>
+      <tr><td>표준궤간</td><td>레일 윗면 <span class="blank" style="min-width:50px"></span>mm 아래</td><td><span class="blank" style="min-width:110px"></span> mm</td></tr>
+    </table>
+    <p class="hint">※ (2) 다음 일을 <b>누가</b> 하는지 쓰세요.</p>
+    <table>
+      <tr><th style="width:62%">행위</th><th>주체</th></tr>
+      <tr><td>교통안전관리자 <b>자격시험 시행 · 자격증명서 교부</b></td><td><span class="blank" style="min-width:140px"></span></td></tr>
+      <tr><td>교통안전관리자 <b>자격의 취소 · 정지</b></td><td><span class="blank" style="min-width:140px"></span></td></tr>
+      <tr><td>교통안전진단기관의 <b>등록</b></td><td><span class="blank" style="min-width:140px"></span></td></tr>
+      <tr><td><b>교통수단안전점검</b> 실시</td><td><span class="blank" style="min-width:140px"></span></td></tr>
+      <tr><td><b>교통시설안전진단</b> 실시</td><td><span class="blank" style="min-width:140px"></span></td></tr>
+      <tr><td><b>교통문화지수</b> 조사 · 공표</td><td><span class="blank" style="min-width:140px"></span></td></tr>
+      <tr><td>철도차량 <b>운전면허</b> 부여 · 취소</td><td><span class="blank" style="min-width:140px"></span></td></tr>
+      <tr><td>철도의 <b>관리청</b></td><td><span class="blank" style="min-width:140px"></span></td></tr>
+      <tr><td><b>철도시설유지보수 시행업무</b>를 위탁받는 기관</td><td><span class="blank" style="min-width:140px"></span></td></tr>
+      <tr><td>여객열차 <b>보안검색</b> 실시</td><td><span class="blank" style="min-width:140px"></span></td></tr>
+    </table>
+    <p class="hint"><b>교사용 정답</b> (1) C=11.8V²/R → 283.2mm · S=2400/R−S′ → 9.6mm · 700/R → 2 · 1kg/ton → 8,000kg · N=cot θ → 높아진다 · 14mm 아래, 1,435mm<br>
+    (2) 국토교통부장관 / 시·도지사 / 시·도지사 / 교통행정기관 / 교통안전진단기관 / 지정행정기관의 장 / 국토교통부장관 / 국토교통부장관 / 한국철도공사 / 철도특별사법경찰관리</p>
+  </div>
+</section>
+
+<!-- ═══════════ 링크 만들기 ═══════════ -->
+<section class="page" id="p-link">
+  <div class="card">
+    <h3>🔗 배포용 링크 만들기</h3>
+    <p>학생에게 줄 링크와 교사용 수업모드 링크를 여기서 바로 만들 수 있습니다.</p>
+
+    <h4>1. 결과 제출을 받으려면 (선택)</h4>
+    <p class="muted">본인 구글 시트에 연결된 <b>Apps Script 웹앱 주소</b>(<code class="law">script.google.com/.../exec</code>)를 넣으세요. 아직 없으면 비워 두고 만들어도 됩니다 — 제출 버튼만 안 보일 뿐 학습은 전부 됩니다.</p>
+    <input id="rcIn" class="linkout" placeholder="https://script.google.com/macros/s/....../exec">
+    <p class="muted" style="margin-top:6px">처음이라면 <a href="https://hongyul67-cpu.github.io/links/guide.html" target="_blank" rel="noopener">시트 연결 가이드</a>를 먼저 보세요. 이미 다른 도구용 주소가 있다면 <b>그대로 재사용</b>하면 한 시트에 모입니다.</p>
+
+    <h4>2. 학생 정보를 어디까지 받을까</h4>
+    <div class="btnrow" id="optRow">
+      <button class="btn ghost" data-o="name">이름</button>
+      <button class="btn ghost" data-o="grade">학년</button>
+      <button class="btn ghost" data-o="dept">학과</button>
+    </div>
+    <p class="muted">반·번호는 기본으로 받습니다. 누르면 켜집니다(파란색 = 켜짐).</p>
+
+    <h4>3. 링크 뽑기</h4>
+    <div class="btnrow"><button class="btn go" id="makeBtn">링크 만들기</button></div>
+    <div id="linkOut"></div>
+  </div>
+
+  <div class="card">
+    <h3>📋 배포 요령</h3>
+    <ul>
+      <li><b>학생용</b>: 위에서 만든 <b>제출 링크</b>를 학급 게시판·카톡·QR로 배포. 결과화면에 "선생님께 결과 제출" 버튼이 생깁니다.</li>
+      <li><b>교사용</b>: <b>수업모드 링크</b>를 브라우저 즐겨찾기에 두고 교실 화면에서 바로 엽니다.</li>
+      <li><b>과제용</b>: 차시 계획표의 "과제"에 적힌 활동(랠리 20문항, OX 1회 등)을 제출 링크로 내주면 시트에 자동 기록됩니다.</li>
+      <li>여러 도구 링크를 한 번에 묶어 QR로 주고 싶으면 <b>링크모음 마스터</b>의 [링크+QR 만들기]를 쓰세요.</li>
+    </ul>
+    <div class="notice"><b>제출 버튼이 안 보인다는 문의</b>가 가장 많습니다. 원인은 대부분 <b>그냥 주소로 열어서</b>입니다. 반드시 <code class="law">?rc=</code>가 붙은 링크로 열어야 버튼이 나옵니다.</div>
+  </div>
+</section>
+</div>
+
+<footer class="ft">철교안 마스터 · 수업용 자료 (교사용)</footer>
+
+<script src="core.js"></script>
+<script>
+window.DATA = { tool:'철교안 - 수업자료', key:'teach', title:'수업용 자료', learn:[], ox:[], quiz:[] };
+CG.boot();
+
+/* ── 링크 만들기 ── */
+var opts = { name:false, grade:false, dept:false };
+document.querySelectorAll('#optRow button').forEach(function(b){
+  b.onclick = function(){
+    var k = b.dataset.o;
+    opts[k] = !opts[k];
+    b.className = opts[k] ? 'btn' : 'btn ghost';
+  };
+});
+document.getElementById('makeBtn').onclick = function(){
+  var base = location.href.replace(/\/[^\/]*$/, '/');
+  var rc = document.getElementById('rcIn').value.trim();
+  var out = document.getElementById('linkOut');
+  if (rc && !/^https:\/\/script\.google\.com\/.+\/exec$/.test(rc)) {
+    out.innerHTML = '<div class="why" style="border-left-color:var(--bad)">주소 형식이 다릅니다. <b>script.google.com</b> 으로 시작해 <b>/exec</b> 로 끝나야 합니다. (구글 <b>시트</b> 주소가 아니라 Apps Script <b>웹앱 배포</b> 주소입니다)</div>';
+    return;
+  }
+  var q = [];
+  if (rc) q.push('rc=' + encodeURIComponent(rc));
+  if (opts.name) q.push('name=1');
+  if (opts.grade) q.push('grade=1');
+  if (opts.dept) q.push('dept=1');
+  var qs = q.length ? '?' + q.join('&') : '';
+  var pages = [
+    ['허브 (전체)', 'index.html'],
+    ['1교시 교통법규', 'law.html'],
+    ['교통안전관리론', 'mgmt.html'],
+    ['철도공학', 'raileng.html'],
+    ['선택과목', 'elective.html'],
+    ['실전 모의고사', 'mock.html']
+  ];
+  var html = '<h4>학생용 링크' + (rc ? ' (제출 가능)' : ' (제출 없음)') + '</h4>';
+  pages.forEach(function(p){
+    html += '<p class="muted" style="margin:10px 0 3px">' + p[0] + '</p>' +
+      '<input class="linkout" readonly value="' + base + p[1] + qs + '" onclick="this.select()">';
+  });
+  var cq = qs ? qs + '&class=1' : '?class=1';
+  html += '<h4 style="margin-top:18px">교사용 수업모드 링크</h4>';
+  pages.slice(1, 5).forEach(function(p){
+    html += '<p class="muted" style="margin:10px 0 3px">🎓 ' + p[0] + '</p>' +
+      '<input class="linkout" readonly value="' + base + p[1] + cq + '" onclick="this.select()">';
+  });
+  html += '<p class="muted" style="margin-top:10px">칸을 누르면 전체 선택됩니다. Ctrl+C 로 복사하세요.</p>';
+  out.innerHTML = html;
+};
+</script>
+</body>
+</html>

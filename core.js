@@ -50,10 +50,16 @@
   /* ── 탭 ── */
   function initTabs() {
     $$('nav.tabs button').forEach(function (b) {
+      // aria-pressed 는 접근성 + 수업모드(class-mode.js)가 현재 탭을 찾는 데 쓴다
+      b.setAttribute('aria-pressed', b.classList.contains('on') ? 'true' : 'false');
       b.addEventListener('click', function () {
-        $$('nav.tabs button').forEach(function (x) { x.classList.remove('on'); });
+        $$('nav.tabs button').forEach(function (x) {
+          x.classList.remove('on');
+          x.setAttribute('aria-pressed', 'false');
+        });
         $$('section.page').forEach(function (x) { x.classList.remove('on'); });
         b.classList.add('on');
+        b.setAttribute('aria-pressed', 'true');
         var p = $('#' + b.dataset.tab);
         if (p) p.classList.add('on');
         w.scrollTo({ top: 0, behavior: 'smooth' });
