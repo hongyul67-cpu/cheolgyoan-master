@@ -361,6 +361,7 @@
       else wrongIdx.push(i + 1);
     });
     var score = Math.round(correct / E.list.length * 100);
+    if (w.RankKit) w.RankKit.award(score);   /* 랭킹전 RP 정산 */
     $('#exPlay').style.display = 'none';
     var host = $('#exResult');
     host.style.display = 'block';
