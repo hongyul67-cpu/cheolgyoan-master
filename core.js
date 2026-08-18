@@ -408,12 +408,34 @@
     $('#exAgain').onclick = function () { $('#exResult').style.display = 'none'; $('#exSetup').style.display = 'block'; };
     var sd = $('#exSend');
     if (sd) sd.onclick = function () {
-      if (w.ResultCollector) {
-        ResultCollector.open({
-          score: score, correct: correct, total: E.list.length,
-          wrong: wrongIdx, durationSec: dur
-        });
+      if (!w.ResultCollector) return;
+      if (!(ResultCollector.config && ResultCollector.config.endpoint)) {
+        alert(['이 링크로는 제출이 되지 않아요.', '',
+          '선생님이 나눠 준 제출용 링크(주소 뒤에 ?rc=... 가 붙은 링크)로',
+          '들어와야 반·번호를 입력하고 결과를 보낼 수 있습니다.', '',
+          '연습은 지금 이대로 계속 하셔도 됩니다.'].join(String.fromCharCode(10)));
+        return;
       }
+      /* 어느 과목·범위였는지 mode 로, 오답은 무엇을 틀렸는지로 (규약 §1 ①②) */
+      var shorten = function (t, len) {
+        t = String(t == null ? '' : t).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+        return t.length > len ? t.slice(0, len - 1) + '\u2026' : t;
+      };
+      var wrongTexts = (wrongIdx || []).map(function (i) {
+        var q = E.list[i];
+        if (!q) return (i + 1) + '\ubc88';
+        var ch = q.c || q.choices || q.opts || [];
+        var my = (E.ans && E.ans[i] != null) ? ch[E.ans[i]] : null;
+        var an = ch[q.a != null ? q.a : q.answer];
+        return (i + 1) + '\ubc88 ' + (my ? shorten(my, 16) : '\ubb34\uc751\ub2f5') +
+               '\u2192' + (an ? shorten(an, 16) : '?');
+      });
+      ResultCollector.open({
+        score: score, correct: correct, total: E.list.length,
+        mode: (D.title || '철교안') + ' — ' + (E.title || '모의고사'),
+        wrong: wrongTexts, durationSec: dur,
+        extra: ['철도교통안전관리자 대비 학습']
+      });
     };
     var best = load('best', 0);
     if (score > best) save('best', score);
