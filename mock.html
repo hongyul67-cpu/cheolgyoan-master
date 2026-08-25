@@ -80,7 +80,7 @@
 
 <header class="top"><div class="inner">
   <h1>🏁 실전 모의고사 <span class="sub">전 과목 통합</span></h1>
-  <p>1교시 50 + 2교시 50 + 3교시 25 = <b>125문항</b>. 실제와 같은 기준으로 <b>과락까지</b> 판정합니다.</p>
+  <p>1교시 50 + 2교시 75 = <b>125문항</b>. 실제와 같은 기준으로 <b>과락까지</b> 판정합니다.</p>
   <a class="homelink" href="index.html">← 철교안 마스터 홈</a>
 </div></header>
 
@@ -127,10 +127,10 @@
       <tr><th>항목</th><th>내용</th></tr>
       <tr><td>근거</td><td>「교통안전법」 제53조, 같은 법 시행령 제41조의2</td></tr>
       <tr><td>시행</td><td>한국교통안전공단(TS) · <b>CBT</b> 방식</td></tr>
-      <tr><td>응시자격</td><td>결격사유(피성년·피한정후견인, 금고 이상 실형 후 2년 미경과 등)만 없으면 <b>누구나</b></td></tr>
-      <tr><td>1교시</td><td>교통법규 50문항 / 50분<br>교통안전법 · 철도안전법 · 철도산업발전기본법</td></tr>
-      <tr><td>2교시</td><td>교통안전관리론 25 + 철도공학 25 / 75분</td></tr>
-      <tr><td>3교시</td><td>선택 1과목 25문항 / 30분<br>열차운전 · 전기이론 · 철도신호 중 택1</td></tr>
+      <tr><td>응시자격</td><td><b>자격제한 없음.</b> 교통안전법 제53조 결격사유자만 응시 불가</td></tr>
+      <tr><td>수수료</td><td>응시 <b>2만원</b> · 자격증 교부 <b>2만원</b> · <b>공학용 계산기 지참 가능</b>(시험 전 초기화)</td></tr>
+      <tr><td>1교시</td><td>교통법규 50문항 / 50분 (문항당 2점)<br>교통안전법 <b>10</b> · 철도안전법 <b>35</b> · 철도산업발전기본법 <b>5</b></td></tr>
+      <tr><td>2교시</td><td>교통안전관리론 25 + 철도공학 25 + <b>선택 1과목 25</b> = 75문항 / 75분 (과목당 25분, 문항당 4점)<br>선택: 열차운전 · 전기이론 · 철도신호 중 택1</td></tr>
       <tr><td>합격기준</td><td><b>과목당 40점 이상 + 평균 60점 이상</b></td></tr>
       <tr><td>면제</td><td>관련 자격·경력·석사 이상 학위로 <b>2~4과목 면제 가능</b>.<br><b>1교시 교통법규는 면제 불가</b></td></tr>
     </table></div>
@@ -212,17 +212,17 @@ function take(arr,n){ return shuffle(arr).slice(0, Math.min(n, arr.length)); }
 function buildPool(full){
   var pool = [];
   if (full) {
-    // 1교시 50 (교통안전법12 / 철도안전법23 / 철도산업발전기본법15)
-    pool = pool.concat(take((lawByTag['교통안전법']||[]).map(mapLaw), 12));
-    pool = pool.concat(take((lawByTag['철도안전법']||[]).map(mapLaw), 23));
-    pool = pool.concat(take((lawByTag['철도산업발전기본법']||[]).map(mapLaw), 15));
+    // 1교시 50 — 공단 시험안내(2026) 비중: 교통안전법10 / 철도안전법35 / 철도산업발전기본법5
+    pool = pool.concat(take((lawByTag['교통안전법']||[]).map(mapLaw), 10));
+    pool = pool.concat(take((lawByTag['철도안전법']||[]).map(mapLaw), 35));
+    pool = pool.concat(take((lawByTag['철도산업발전기본법']||[]).map(mapLaw), 5));
     pool = pool.concat(take(BANK['교통안전관리론'], 25));
     pool = pool.concat(take(BANK['철도공학'], 25));
     pool = pool.concat(take(BANK[sub], 25));
   } else {
-    pool = pool.concat(take((lawByTag['교통안전법']||[]).map(mapLaw), 6));
-    pool = pool.concat(take((lawByTag['철도안전법']||[]).map(mapLaw), 11));
-    pool = pool.concat(take((lawByTag['철도산업발전기본법']||[]).map(mapLaw), 7));
+    pool = pool.concat(take((lawByTag['교통안전법']||[]).map(mapLaw), 5));
+    pool = pool.concat(take((lawByTag['철도안전법']||[]).map(mapLaw), 17));
+    pool = pool.concat(take((lawByTag['철도산업발전기본법']||[]).map(mapLaw), 2));
     pool = pool.concat(take(BANK['교통안전관리론'], 12));
     pool = pool.concat(take(BANK['철도공학'], 12));
     pool = pool.concat(take(BANK[sub], 12));

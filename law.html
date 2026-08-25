@@ -80,7 +80,7 @@
 
 <header class="top"><div class="inner">
   <h1>⚖️ 1교시 교통법규 <span class="sub">50문항 · 50분</span></h1>
-  <p>교통안전법 12 · 철도안전법 23 · 철도산업발전기본법 15 — 철교안 합격의 절반이 여기서 갈립니다.</p>
+  <p>교통안전법 10 · 철도안전법 35 · 철도산업발전기본법 5 — 철교안 합격의 절반이 여기서 갈립니다.</p>
   <a class="homelink" href="index.html">← 철교안 마스터 홈</a>
 </div></header>
 
@@ -134,11 +134,11 @@
   <div id="exSetup">
     <div class="card">
       <h3>📝 1교시 모의 CBT</h3>
-      <p>실제 1교시와 같은 <b>50문항 / 50분</b>입니다. 출제 비중도 실제와 맞췄습니다.</p>
+      <p>실제 1교시와 같은 <b>50문항 / 50분</b>입니다. 출제 비중은 <b>공단 시험안내(2026)</b> 기준으로 맞췄습니다.</p>
       <table class="t"><tr><th>법령</th><th>문항</th></tr>
-        <tr><td>교통안전법</td><td>12</td></tr>
-        <tr><td>철도안전법</td><td>23</td></tr>
-        <tr><td>철도산업발전기본법</td><td>15</td></tr></table>
+        <tr><td>교통안전법</td><td>10</td></tr>
+        <tr><td>철도안전법</td><td><b>35</b></td></tr>
+        <tr><td>철도산업발전기본법</td><td>5</td></tr></table>
       <p class="muted">내 최고점: <b id="bestScore">-</b></p>
       <div class="btnrow">
         <button class="btn go" id="ex50">50문항 실전 (50분)</button>
@@ -178,9 +178,9 @@ keys:['교통안전관리자 자격의 근거 = 교통안전법 제53조','자�
 <div class="scrollx"><table class="t">
 <tr><th>교시</th><th>과목</th><th>문항</th><th>시간</th></tr>
 <tr><td>1교시</td><td><b>교통법규</b><br>(교통안전법·철도안전법·철도산업발전기본법)</td><td>50</td><td>50분</td></tr>
-<tr><td rowspan="2">2교시</td><td>교통안전관리론</td><td>25</td><td rowspan="2">75분</td></tr>
+<tr><td rowspan="3">2교시</td><td>교통안전관리론</td><td>25</td><td rowspan="3">75분<br>(과목당 25분)</td></tr>
 <tr><td>철도공학</td><td>25</td></tr>
-<tr><td>3교시</td><td>선택 1과목<br>(열차운전 / 전기이론 / 철도신호)</td><td>25</td><td>30분</td></tr>
+<tr><td>선택 1과목<br>(열차운전 / 전기이론 / 철도신호)</td><td>25</td></tr>
 </table></div>
 <h4>합격 기준 — 두 조건을 <span class="hl2">동시에</span></h4>
 <ul>
@@ -189,7 +189,7 @@ keys:['교통안전관리자 자격의 근거 = 교통안전법 제53조','자�
 </ul>
 <div class="notice"><b>중요</b> 학위·자격·경력으로 2~4과목은 면제받을 수 있어도, <b>1교시 교통법규는 절대 면제되지 않습니다</b>. 그래서 합격의 핵심이 법 과목입니다.</div>
 <h4>1교시 안에서의 비중</h4>
-<p>50문항이 대체로 <span class="num">교통안전법 12 / 철도안전법 23 / 철도산업발전기본법 15</span> 정도로 나옵니다. <b>철도안전법이 가장 큽니다.</b></p>`,
+<p>공단 시험안내 기준 <span class="num">교통안전법 10문제 / 철도안전법 35문제 / 철도산업발전기본법 5문제</span>입니다. <b>철도안전법이 압도적</b>이라 여기부터 잡아야 합니다. <span class="muted">※ 법규 간 1~3문항 범위에서 변동될 수 있습니다(총 50문항 고정).</span></p><h4>배점과 계산기</h4><ul><li>1교시는 <b>문항당 2점</b>(50문항×2점=100점), 2교시는 <b>문항당 4점</b>(25문항×4점=100점)</li><li><b>공학용 계산기 지참 가능</b> — 다만 시험 시작 전 초기화하거나 메모리카드를 빼야 합니다</li><li>교통법규는 <b>법·시행령·시행규칙을 모두</b> 포함하며, <b>시험시행일 기준으로 시행 중인 법령</b>에서 출제됩니다</li></ul>`,
 keys:['과목당 40점 이상 + 평균 60점 이상 = 합격','1교시 교통법규는 면제 불가','철도안전법 비중이 가장 큼(약 23문항)']},
 
 /* ───────── 교통안전법 ───────── */
@@ -1034,10 +1034,10 @@ quiz:[
 };
 CG.boot();
 document.getElementById('ex50').onclick=function(){
-  // 실제 비중대로 뽑기: 교통안전법 12 / 철도안전법 23 / 철도산업발전기본법 15
+  // 공단 시험안내(2026) 비중: 교통안전법 10 / 철도안전법 35 / 철도산업발전기본법 5
   var by={}; DATA.quiz.forEach(function(q){ (by[q.tag]=by[q.tag]||[]).push(q); });
   function pick(t,n){ var a=(by[t]||[]).slice(); for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),x=a[i];a[i]=a[j];a[j]=x;} return a.slice(0,n); }
-  var pool=pick('교통안전법',12).concat(pick('철도안전법',23)).concat(pick('철도산업발전기본법',15));
+  var pool=pick('교통안전법',10).concat(pick('철도안전법',35)).concat(pick('철도산업발전기본법',5));
   CG.examStart(pool.length,50,pool);
 };
 document.getElementById('ex20').onclick=function(){ CG.examStart(20,0); };
