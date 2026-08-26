@@ -360,6 +360,10 @@
       if (E.ans[i] === q.a) { correct++; byTag[t].ok++; }
       else wrongIdx.push(i + 1);
     });
+    // 문항별 결과 — 페이지가 오답 기록 등에 쓸 수 있게 넘긴다
+    var detail = E.list.map(function (q, i) {
+      return { id: q._id || null, ok: E.ans[i] === q.a, my: E.ans[i], ans: q.a, tag: q.tag || '' };
+    });
     var score = Math.round(correct / E.list.length * 100);
     if (w.RankKit) w.RankKit.award(score);   /* 랭킹전 RP 정산 */
     $('#exPlay').style.display = 'none';
@@ -393,7 +397,7 @@
     // 페이지별 추가 판정(예: 실전 모의고사의 과락 판정)을 끼워 넣을 수 있는 후크
     if (typeof CG.onGraded === 'function') {
       try {
-        var extra = CG.onGraded({ score: score, correct: correct, total: E.list.length, byTag: byTag, durationSec: dur });
+        var extra = CG.onGraded({ score: score, correct: correct, total: E.list.length, byTag: byTag, durationSec: dur, detail: detail });
         if (extra) {
           var box = el('div', '');
           box.innerHTML = extra;
