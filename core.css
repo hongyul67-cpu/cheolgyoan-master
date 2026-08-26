@@ -169,3 +169,10 @@ footer.ft{text-align:center;color:var(--dim);font-size:.78rem;padding:26px 14px;
   .result .big{font-size:2.4rem}
   header.top h1{font-size:1.15rem}
 }
+
+/* ── 오른쪽 아래에 떠 있는 버튼 두 개가 서로 포개지는 것을 막는다 ──
+   fx.js 의 「소리」(#fxSnd, bottom:12px) 와 class-mode.js 의 「수업모드」(.cm-launch, bottom:14px)
+   가 둘 다 오른쪽 아래에 붙는데, 서로의 존재를 모른다. 두 파일 다 공용이라 여기서 비켜 준다.
+   (수업모드 버튼 높이 44 + bottom 14 = 58 → 그 위 8px 인 66px 로 올린다)
+   과목 페이지 6장이 이 파일을 함께 쓰므로 여기 한 번만 적으면 된다. */
+#fxSnd{bottom:66px!important}
