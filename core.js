@@ -34,6 +34,45 @@
     return a;
   }
   function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+  /* ── 보기 순서 섞기 ────────────────────────────────────────
+     같은 문제라도 사람마다 보기 차례가 달라야 «정답은 3번» 을 외우지 않는다.
+     수업용 링크(?fix=…)로 들어오면 그날 시드로 우리끼리 난수를 만들어 쓰므로,
+     다른 위젯이 난수를 몇 번 뽑든 학생 전원이 같은 시험지를 받는다. */
+  function fixMode() { return !!(w.FixOrder && w.FixOrder.on); }
+  function mixRnd(key) {
+    if (!fixMode()) return Math.random;
+    var h = 2166136261, k = String(key);
+    for (var i = 0; i < k.length; i++) { h ^= k.charCodeAt(i); h = (h * 16777619) >>> 0; }
+    var a = ((w.FixOrder.seed >>> 0) ^ h) >>> 0;
+    return function () { a = (a + 0x6D2B79F5) | 0; var t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+  }
+  function shuffledBy(a, rnd) {
+    a = a.slice();
+    for (var i = a.length - 1; i > 0; i--) { var j = Math.floor((rnd || Math.random)() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; }
+    return a;
+  }
+  var CIRC4 = ['①', '②', '③', '④'];
+  var CIRCRE = /[①②③④]/, AGGREG = /모두 (옳|맞|정답|해당)|위 모두|위의 모두|정답이 없|해당 없/;
+  /* 섞으면 안 되는 문항
+     ① 복수정답 — 해설이 «1번 · 3번» 처럼 번호를 그대로 적어 둔다
+     ② 문제·보기에 ①~④ 가 적힘 — 다른 뜻일 수 있다
+     ③ «위 모두 옳다» 류 — 자리를 옮기면 말이 되지 않는다 */
+  function mixQ(q, rnd) {
+    var c = q.c || [];
+    if (q.multi || c.length < 2 || CIRCRE.test(q.q || '')) return q;
+    for (var i = 0; i < c.length; i++) if (CIRCRE.test(c[i]) || AGGREG.test(c[i])) return q;
+    var ord = shuffledBy(c.map(function (_, k) { return k; }), rnd);   // ord[새자리]=옛자리
+    var to = []; ord.forEach(function (old, now) { to[old] = now; });  // to[옛자리]=새자리
+    var out = {}; for (var k2 in q) out[k2] = q[k2];
+    out.c = ord.map(function (k3) { return c[k3]; });
+    out.a = to[q.a];
+    /* 해설이 «①②는 철도교통사고» 처럼 번호를 짚는 곳이 있어 함께 옮긴다 */
+    out.why = String(q.why == null ? '' : q.why)
+      .replace(/[①②③④]/g, function (ch) { var i2 = CIRC4.indexOf(ch); return (i2 < c.length && to[i2] != null) ? CIRC4[to[i2]] : ch; });
+    return out;
+  }
   function save(k, v) { try { localStorage.setItem(LS + D.key + '_' + k, JSON.stringify(v)); } catch (e) {} }
   function load(k, d) {
     try { var v = localStorage.getItem(LS + D.key + '_' + k); return v == null ? d : JSON.parse(v); }
@@ -195,7 +234,8 @@
 
   function rallyStart(tag) {
     var pool = tag && tag !== '전체' ? D.quiz.filter(function (q) { return q.tag === tag; }) : D.quiz;
-    R.list = shuffle(pool).slice(0, Math.min(20, pool.length));
+    var rrnd = mixRnd('rally|' + D.key + '|' + (tag || ''));
+    R.list = shuffledBy(pool, rrnd).slice(0, Math.min(20, pool.length)).map(function (q) { return mixQ(q, rrnd); });
     R.i = 0; R.ok = 0; R.wrong = [];
     fx('reset');
     $('#rlSetup').style.display = 'none';
@@ -274,8 +314,9 @@
   CG.examStart = function (n, min, pool) {
     var src = pool || D.quiz;
     n = n || src.length;
-    E.list = shuffle(src).slice(0, Math.min(n, src.length));
-    E.ans = E.list.map(function () { return -1; });
+    var ernd = mixRnd('exam|' + D.key + '|' + n + '|' + src.length);
+    E.list = shuffledBy(src, ernd).slice(0, Math.min(n, src.length)).map(function (q) { return mixQ(q, ernd); });
+    E.ans = E.list.map(function (q) { return q.multi ? [] : -1; });
     E.i = 0; E.done = false;
     E.t0 = Date.now();
     E.limit = (min || 0) * 60;
@@ -293,6 +334,24 @@
     }
     examDraw();
   };
+  /* 복수정답 문항 지원 — q.multi 가 true 면 q.a 는 정답 인덱스 배열이고
+     E.ans[i] 도 인덱스 배열이 된다. multi 가 없는 문항은 예전 그대로 동작한다. */
+  function ansArr(v) { return Array.isArray(v) ? v.slice() : (v >= 0 ? [v] : []); }
+  function answered(i) { var v = E.ans[i]; return Array.isArray(v) ? v.length > 0 : v >= 0; }
+  function keyArr(q) { return q.multi ? (q.a || []).slice() : [q.a]; }
+  function isRight(q, v) {
+    var k = keyArr(q).sort(function (x, y) { return x - y; });
+    var m = ansArr(v).sort(function (x, y) { return x - y; });
+    return k.length === m.length && k.every(function (x, i) { return x === m[i]; });
+  }
+  function fmtPick(q, v) {
+    var m = ansArr(v);
+    if (!m.length) return '미응답';
+    return m.map(function (i) { return (i + 1) + '. ' + esc(q.c[i]); }).join('  /  ');
+  }
+  function fmtKey(q) {
+    return keyArr(q).map(function (i) { return (i + 1) + '. ' + esc(q.c[i]); }).join('  /  ');
+  }
   function examDraw() {
     var q = E.list[E.i];
     var host = $('#exPlay');
@@ -303,13 +362,21 @@
     head.appendChild(el('span', 'qnum', '<span id="exTime"></span> &nbsp; ' + (E.i + 1) + ' / ' + E.list.length));
     box.appendChild(head);
     box.appendChild(el('div', 'qtext', esc(q.q)));
+    if (q.multi) box.appendChild(el('div', 'multihint', '\u203b \ubcf5\uc218\uc815\ub2f5 \ubb38\ud56d\uc785\ub2c8\ub2e4 \u2014 \uc5ec\ub7ec \uac1c\ub97c \uace0\ub97c \uc218 \uc788\uace0, \uace0\ub978 \ubcf4\uae30\ub97c \ub2e4\uc2dc \ub204\ub974\uba74 \ud574\uc81c\ub429\ub2c8\ub2e4.'));
     var opts = el('div', 'opts');
     q.c.forEach(function (t, idx) {
-      var b = el('button', 'opt' + (E.ans[E.i] === idx ? ' sel' : ''), '<span class="n">' + (idx + 1) + '</span><span>' + esc(t) + '</span>');
+      var on = q.multi ? ansArr(E.ans[E.i]).indexOf(idx) >= 0 : E.ans[E.i] === idx;
+      var b = el('button', 'opt' + (on ? ' sel' : ''), '<span class="n">' + (idx + 1) + '</span><span>' + esc(t) + '</span>');
       b.onclick = function () {
-        E.ans[E.i] = idx;
-        $$('.opt', opts).forEach(function (x) { x.classList.remove('sel'); });
-        b.classList.add('sel');
+        if (q.multi) {
+          var a = E.ans[E.i], p = a.indexOf(idx);
+          if (p >= 0) { a.splice(p, 1); b.classList.remove('sel'); }
+          else { a.push(idx); a.sort(function (x, y) { return x - y; }); b.classList.add('sel'); }
+        } else {
+          E.ans[E.i] = idx;
+          $$('.opt', opts).forEach(function (x) { x.classList.remove('sel'); });
+          b.classList.add('sel');
+        }
         drawSheet();
       };
       opts.appendChild(b);
@@ -324,7 +391,7 @@
     nx.onclick = function () { E.i++; examDraw(); };
     var sb = el('button', 'btn warn', '제출하고 채점');
     sb.onclick = function () {
-      var un = E.ans.filter(function (a) { return a < 0; }).length;
+      var un = E.ans.filter(function (a, i) { return !answered(i); }).length;
       if (un && !confirm('아직 안 푼 문제가 ' + un + '문항 있습니다. 채점할까요?')) return;
       examGrade();
     };
@@ -342,7 +409,7 @@
     E.list.forEach(function (q, i) {
       var b = el('button', '', String(i + 1));
       b.style.cssText = 'width:34px;height:34px;border-radius:7px;font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit;border:1px solid var(--line);' +
-        (i === E.i ? 'background:var(--rail);color:#fff;' : E.ans[i] >= 0 ? 'background:#0f2417;color:var(--acc);' : 'background:var(--panel2);color:var(--dim);');
+        (i === E.i ? 'background:var(--rail);color:#fff;' : answered(i) ? 'background:#0f2417;color:var(--acc);' : 'background:var(--panel2);color:var(--dim);');
       b.onclick = function () { E.i = i; examDraw(); scrollTo({ top: 0, behavior: 'smooth' }); };
       s.appendChild(b);
     });
@@ -357,12 +424,12 @@
       var t = q.tag || '기타';
       byTag[t] = byTag[t] || { n: 0, ok: 0 };
       byTag[t].n++;
-      if (E.ans[i] === q.a) { correct++; byTag[t].ok++; }
+      if (isRight(q, E.ans[i])) { correct++; byTag[t].ok++; }
       else wrongIdx.push(i + 1);
     });
     // 문항별 결과 — 페이지가 오답 기록 등에 쓸 수 있게 넘긴다
     var detail = E.list.map(function (q, i) {
-      return { id: q._id || null, ok: E.ans[i] === q.a, my: E.ans[i], ans: q.a, tag: q.tag || '' };
+      return { id: q._id || null, ok: isRight(q, E.ans[i]), my: E.ans[i], ans: q.a, tag: q.tag || '' };
     });
     var score = Math.round(correct / E.list.length * 100);
     if (w.RankKit) w.RankKit.award(score);   /* 랭킹전 RP 정산 */
@@ -387,10 +454,10 @@
 
     html += '<div class="card"><h3>📝 전체 해설 (오답 ' + wrongIdx.length + '문항)</h3>' +
       E.list.map(function (q, i) {
-        var my = E.ans[i], ok = my === q.a;
+        var ok = isRight(q, E.ans[i]);
         return '<div class="wrongitem"><div class="q">' + (i + 1) + '. ' + (ok ? '⭕ ' : '❌ ') + esc(q.q) + '</div>' +
-          '<div class="a">내 답: ' + (my < 0 ? '미응답' : (my + 1) + '. ' + esc(q.c[my])) +
-          '<br>정답: <i>' + (q.a + 1) + '. ' + esc(q.c[q.a]) + '</i><br>' + q.why + '</div></div>';
+          '<div class="a">내 답: ' + fmtPick(q, E.ans[i]) +
+          '<br>정답: <i>' + fmtKey(q) + '</i><br>' + q.why + '</div></div>';
       }).join('') + '</div>';
 
     host.innerHTML = html;

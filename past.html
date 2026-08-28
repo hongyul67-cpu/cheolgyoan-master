@@ -108,7 +108,7 @@
 <footer class="ft">철교안 마스터 · 교재 기출문제</footer>
 
 <script src="core.js"></script>
-<script src="lock.js?v=aad20c07"></script>
+<script src="lock.js?v=2aeaed5c"></script>
 <script>
 var BANK = [], part = null, chap = null, nWant = 20, brPart = null;
 var HIST_KEY = 'cgm_past_hist_v1';
@@ -120,11 +120,14 @@ function saveHist(h){ try{ localStorage.setItem(HIST_KEY, JSON.stringify(h)); }c
 function qid(x){ return x.b + '/' + x.ch + '/' + x.n; }
 
 /* 교재 문항을 엔진이 쓰는 형태로 바꾼다.
-   복수정답(a 가 배열)은 첫 번째를 정답으로 두되 해설에 모두 적어 준다. */
+   복수정답(a 가 배열)은 지문에 「복수정답」임을 밝히고 보기를 여러 개 고를 수 있게 한다.
+   채점은 정답 집합과 정확히 같아야 맞는 것으로 본다. */
 function toQuiz(x){
   var multi = Array.isArray(x.a);
+  var q = '[' + x.b + ' ' + x.ch + '장 ' + x.n + '] ' + x.q +
+          (multi ? ' (복수정답 — 해당하는 것을 모두 고르세요)' : '');
   var why = x.why + (multi ? '<br><b>※ 교재 복수정답</b>: ' + x.a.map(function(i){return (i+1)+'번';}).join(' · ') : '');
-  return { q:'[' + x.b + ' ' + x.ch + '장 ' + x.n + '] ' + x.q, c:x.c, a: multi ? x.a[0] : x.a,
+  return { q:q, c:x.c, a: multi ? x.a.slice() : x.a, multi: multi,
            why: why, tag: x.b + ' ' + x.ch + '장', _id: qid(x) };
 }
 
@@ -198,7 +201,8 @@ function paintBrowse(){
     var a = Array.isArray(x.a)? x.a : [x.a];
     return '<div class="qbox"><div class="qhead"><span class="qtag">'+x.b+' '+x.ch+'장 '+(x.ct||'')+'</span>'+
       '<span class="qnum">'+x.n+'번</span></div>'+
-      '<div class="qtext">'+esc(x.q).replace(/\n/g,'<br>')+'</div>'+
+      '<div class="qtext">'+esc(x.q).replace(/\n/g,'<br>')+
+        (a.length>1 ? '<span class="multitag"> (복수정답 '+a.length+'개)</span>' : '')+'</div>'+
       '<div class="opts">'+x.c.map(function(t,i){
         return '<div class="opt'+(a.indexOf(i)>=0?' ok':'')+'"><span class="n">'+(i+1)+'</span><span>'+esc(t)+'</span></div>';
       }).join('')+'</div>'+

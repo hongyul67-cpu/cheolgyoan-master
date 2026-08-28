@@ -107,6 +107,8 @@ table.t th{background:var(--panel2);color:var(--acc2)}
 .qtag{background:#1d2b3d;color:var(--acc2);border-radius:6px;padding:2px 9px;font-size:.75rem;font-weight:700}
 .qnum{color:var(--dim);font-size:.82rem;font-variant-numeric:tabular-nums}
 .qtext{font-size:1rem;font-weight:600;margin:6px 0 12px;line-height:1.6}
+.multihint{font-size:.84rem;color:var(--gold);margin:-4px 0 10px;font-weight:600}
+.multitag{color:var(--gold);font-weight:700}
 .opts{display:flex;flex-direction:column;gap:8px}
 .opt{
   display:flex;gap:10px;align-items:flex-start;background:var(--panel2);border:1px solid var(--line);
