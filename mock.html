@@ -105,7 +105,7 @@
       </div>
       <h4>응시 방식</h4>
       <div class="btnrow">
-        <button class="btn go" id="goFull">전 과목 125문항 (155분)</button>
+        <button class="btn go" id="goFull">전 과목 125문항 (125분)</button>
         <button class="btn ghost" id="goHalf">축약 60문항 (60분)</button>
       </div>
       <p class="muted" id="loadMsg">문제은행 불러오는 중…</p>
@@ -239,7 +239,7 @@ document.querySelectorAll('#subPick button').forEach(function(b){
     b.classList.add('on'); sub = b.dataset.s;
   };
 });
-document.getElementById('goFull').onclick = function(){ if(!loaded) return; var p=buildPool(true); CG.examStart(p.length, 155, p); };
+document.getElementById('goFull').onclick = function(){ if(!loaded) return; var p=buildPool(true); CG.examStart(p.length, 125, p);   /* 실제 시험과 같게 — 1교시 50분 + 2교시 75분 */ };
 document.getElementById('goHalf').onclick = function(){ if(!loaded) return; var p=buildPool(false); CG.examStart(p.length, 60, p); };
 
 /* 과락 판정 */
