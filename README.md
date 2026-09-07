@@ -40,16 +40,16 @@
 python -m http.server 8871 --directory "C:\Users\user\Desktop\claude code\cheolgyoan-master"
 ```
 
-## 수업모드 (class-mode)
+## 수업 슬라이드 (board-pro)
 
-과목 페이지 5개에 `links/class-mode.js`가 붙어 있습니다. 교실 화면용으로 확대하고
-점수·콤보를 숨기며 교사 툴바를 띄웁니다.
+허브(`index.html`) 맨 아래 **「📽️ 수업 슬라이드 열기」** 로 교실 화면용 슬라이드가 열립니다.
+전 과목 요점을 **50장**(9단원)으로 추린 별도의 한 벌이고, 과목 페이지의 **배우기는 그대로** 둡니다.
 
-- 켜기: 우하단 🎓 버튼 / 주소에 `?class=1` / `F9`
-- 넘기기: `← →` `Space` `PageUp/PageDown`(프레젠터 리모컨) / 탭 이동 `1~9` / 끄기 `Esc`
-- 인식 규약은 각 페이지 `<head>`의 `window.CLASSMODE = {...}`로 지정
-  (`options:'.opt, .oxbtns button'`, `explain:'.why'`, `correct:'.ok'`, `wrong:'.ng'`).
-  탭 현재 위치는 `core.js`가 넣는 `aria-pressed`로 판별합니다.
+- 원고는 이 저장소의 `lesson.js`, 화면은 **`links/board-pro.js` 공용 파일**입니다.
+  저장소에 뷰어 사본을 두지 않습니다 — 화면을 고쳐야 하면 `links` 저장소에서 고칩니다.
+- 슬라이드마다 **요점 → 발문 → 퀴즈 → 정답** 을 한 번씩 눌러 엽니다. 요점 속 파란 빈칸은 눌러야 보입니다.
+- 펜 · 형광펜 · 지우개 · **선택**(판서 끄기) 넷 중 하나가 켜지고, 처음 상태는 **선택**입니다.
+- 단원만 골라 열거나 「전체 이어서」로 50장을 순서대로 넘길 수 있습니다.
 
 ## 결과 제출 (result-collector)
 
