@@ -37,7 +37,7 @@
 로컬 확인:
 
 ```bash
-python -m http.server 8871 --directory "C:\Users\user\Desktop\claude code\cheolgyoan-master"
+python -m http.server 8871 --directory "C:\Users\user\Desktop\claude code\철교안 마스터"
 ```
 
 ## 수업 슬라이드 (board-pro)
