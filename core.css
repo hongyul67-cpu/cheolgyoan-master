@@ -178,3 +178,8 @@ footer.ft{text-align:center;color:var(--dim);font-size:.78rem;padding:26px 14px;
    (수업모드 버튼 높이 44 + bottom 14 = 58 → 그 위 8px 인 66px 로 올린다)
    과목 페이지 6장이 이 파일을 함께 쓰므로 여기 한 번만 적으면 된다. */
 #fxSnd{bottom:66px!important}
+
+/* 배우기 그림 (figs.js) */
+.lrn .lfigs{margin:16px 0 6px}
+.lrn .lfigs .fig-gallery{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.lrn .lfigs .fig-gallery figure.fig{max-width:620px}

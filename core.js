@@ -118,6 +118,15 @@
     D.learn.forEach(function (c) { if (seen.indexOf(c.sec) < 0) { seen.push(c.sec); out.push(c.sec); } });
     return out;
   }
+  /* 그림 — figs.js 의 cards 에 이 카드 제목이 있으면 본문 아래에 붙인다 (links/fig.js) */
+  function learnFigs(title) {
+    if (!window.FIG || !window.FIGS) return '';
+    var ks = Object.keys(window.FIGS).filter(function (k) {
+      var f = window.FIGS[k];
+      return f && f.cards && f.cards.indexOf(title) >= 0;
+    });
+    return ks.length ? window.FIG.gallery(ks) : '';
+  }
   function renderLearn() {
     var host = $('#learnHost'); if (!host) return;
     var secs = learnSections();
@@ -140,6 +149,8 @@
     card.appendChild(el('div', 'idx', (L.i + 1) + ' / ' + L.list.length));
     card.appendChild(el('h3', '', esc(c.title)));
     card.appendChild(el('div', '', c.body));
+    var fg = learnFigs(c.title);
+    if (fg) card.appendChild(el('div', 'lfigs', fg));
     if (c.keys && c.keys.length) {
       var k = el('div', 'keys');
       k.appendChild(el('b', '', '⭐ 시험에 나오는 포인트'));

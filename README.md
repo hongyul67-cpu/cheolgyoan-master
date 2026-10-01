@@ -51,6 +51,15 @@ python -m http.server 8871 --directory "C:\Users\user\Desktop\claude code\철교
 - 펜 · 형광펜 · 지우개 · **선택**(판서 끄기) 넷 중 하나가 켜지고, 처음 상태는 **선택**입니다.
 - 단원만 골라 열거나 「전체 이어서」로 50장을 순서대로 넘길 수 있습니다.
 
+## 배우기 그림 (figs.js)
+
+배우기 카드 74장 중 64장에 직접 그린 SVG 그림이 붙어 있습니다(그림 84장, 2026-10-01).
+그림은 이 저장소의 `figs.js` 하나에 모여 있고, 그리기 도우미는 **공용 `links/fig.js`** 입니다(사본을 두지 않습니다).
+
+- 각 그림의 `cards` 에 배우기 카드 제목(`DATA.learn[].title`)을 **똑같이** 적으면 `core.js` 가 그 카드 본문 아래에 붙입니다.
+- 수업 슬라이드(`lesson.js`)도 같은 그림을 씁니다 — `shared('키', 1)` 처럼 1을 주면 빈칸 답이 되는 이름표가 `?` 로 가려집니다.
+- 그림의 수치는 카드 본문에 적힌 값만 썼습니다. 법령이 바뀌면 카드와 그림을 함께 고칩니다.
+
 ## 결과 제출 (result-collector)
 
 모든 페이지가 `https://hongyul67-cpu.github.io/links/collector.js` 를 include 합니다.
